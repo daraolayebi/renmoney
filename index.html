@@ -35,9 +35,9 @@
                     <div id="pageIntro"
                         class="form-page">
                         <div class="pwr-intro">
-                            <h4>Welcome to Renmoney's online payment platform.</h4>
+                            <h4>Welcome to the Renmoney online payment platform.</h4>
                             <p>Click the button below to proceed.</p>
-                            <small class="required-label"><i>Please note: ALL fields are required.</i></small>
+                            <small class="required-label warning-intro"><i>Please note: ALL fields are required.</i></small>
                             <button class="btn btn-orange btn-arrow btn-continue"
                                 onclick="changePage(1)">
                                 <span class="btn-arrow-text">Continue</span>
@@ -323,8 +323,10 @@
 
                     <div id="page4"
                         class="form-page result-page">
-                        <h4>Your Information</h4>
-                        <div class="user-data"></div>
+                        <div class="user-data">
+                            <h5>Your Information</h5>
+                            <br>
+                        </div>
                         <div class="todo"></div>
                     </div>
 
@@ -332,6 +334,8 @@
                         id="prevNextBtns">
                         <button class="btn-page-toggle prev"
                             onclick="changePage(-1)">Prev</button>
+                        <small id="warning"
+                            class="required-label">ALL fields are required!</small>
                         <button type="submit"
                             class="btn-page-toggle next"
                             onclick="changePage(1)">Next</button>

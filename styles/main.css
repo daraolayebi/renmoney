@@ -211,7 +211,7 @@ body.widget-is-open .pwr-wrapper {
     letter-spacing: 2px;
     color: #075383;
     display: none;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .btn-page-toggle.next::after {
@@ -219,8 +219,8 @@ body.widget-is-open .pwr-wrapper {
     background: url("../images/button-arrow-blue.svg") no-repeat;
     background-size: cover;
     display: inline-block;
-    width: 16px;
-    height: 16px;
+    width: 15px;
+    height: 15px;
     vertical-align: middle;
     margin-left: 6px;
     margin-top: -3px;
@@ -231,8 +231,8 @@ body.widget-is-open .pwr-wrapper {
     background: url("../images/button-arrow-blue.svg") no-repeat;
     background-size: cover;
     display: inline-block;
-    width: 16px;
-    height: 16px;
+    width: 15px;
+    height: 15px;
     vertical-align: middle;
     margin-right: 6px;
     margin-top: -3px;
@@ -344,6 +344,13 @@ body.widget-is-open .pwr-widget {
     font-size: 14px;
     color: #bb1e1e;
     font-weight: 400;
+}
+
+.btn-toggle-group .required-label {
+    display: none;
+}
+
+.warning-intro {
     position: absolute;
     bottom: 30px;
     left: 0;

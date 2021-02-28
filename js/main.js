@@ -8,10 +8,10 @@ let btnContinue = document.getElementById('btnStart')
 let closeWidget = document.getElementById('btnClose');
 let prevNextBtns = document.getElementsByClassName('btn-page-toggle')
 let paymentForm = document.getElementsByTagName('form')[0]
+let formWarning = document.getElementById('warning')
 
 let currentPage = 0;
 let isLastPage = false
-let isValid = null
 let pages = document.getElementsByClassName('form-page')
 let dataContainer = document.getElementsByClassName('user-data')[0]
 
@@ -39,6 +39,14 @@ function changePage(page) {
         fetchTodo();
     }
 
+
+    // checks that all fields are filled before proceeding to next page
+    if (page == 1 && !validateFields()) {
+        formWarning.style.display = "block";
+        return false;
+    } else formWarning.style.display = "none";
+
+
     // checks if user is on second to the last page before setting isLastPage to true 
     // button text is changed
     if (page == 1 && currentPage == 2) {
@@ -46,12 +54,14 @@ function changePage(page) {
         prevNextBtns[1].innerHTML = "Finish";
     } else prevNextBtns[1].innerHTML = "Next";
 
+
     // hides current page
     // adds +1 or -1 from current page number
     // passes key to pages array to display the new page 
     pages[currentPage].style.display = "none";
     currentPage = currentPage + page;
     pages[currentPage].style.display = "block";
+
 
     // checks if user is not on the first or the last page to determine button display
     if (currentPage >= 1 && currentPage < 4) {
@@ -62,6 +72,7 @@ function changePage(page) {
         togglePrevNextButtons('none');
         logo.classList.add('large')
     }
+
 
     displayCurrentPage(currentPage);
 }
@@ -75,6 +86,23 @@ function togglePrevNextButtons(display) {
 // determines which page to display by passing page value to array key
 function displayCurrentPage(page) {
     pages[page].style.display = "block";
+}
+
+// checks if all fields are filled before enabling Next button
+function validateFields() {
+    let isValid = true
+    let input = pages[currentPage].getElementsByTagName("input");
+    let select = pages[currentPage].getElementsByTagName("select");
+
+    if (currentPage > 0) {
+        for (let i = 0; i < input.length; i++) {
+            if (input[i].value == "") isValid = false
+        }
+        for (let i = 0; i < select.length; i++) {
+            if (select[i].value == "") isValid = false
+        }
+    }
+    return isValid;
 }
 
 // resets page values and clears payment form once widget is closed
@@ -113,8 +141,6 @@ function fetchTodo() {
         url: "https://jsonplaceholder.typicode.com/todos/1",
         dataType: "json",
         success: function (response) {
-            let data = JSON.stringify(response)
-            console.log(data)
             document.querySelector('.todo').innerHTML = `
             <h5>Your Todo: ${response.title}</h5>
             <p class="user-data-item">User ID: ${response.userId}<p>
