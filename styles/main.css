@@ -1,0 +1,458 @@
+@font-face {
+    font-family: "Circular";
+    src: url("../fonts/circular-book.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Circular";
+    src: url("../fonts/circular-medium.otf") format("opentype");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Circular";
+    src: url("../fonts/circular-black.otf") format("opentype");
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Graphik";
+    src: url("../fonts/Graphik-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Graphik";
+    src: url("../fonts/Graphik-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    font-family: "Graphik", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #6b6b6b;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Circular", sans-serif;
+    font-weight: 600;
+    color: #075383;
+    padding-bottom: 10px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+h4 {
+    font-size: 25px;
+}
+
+h5 {
+    font-size: 18px;
+}
+
+p {
+    font-size: inherit;
+    font-weight: inherit;
+    color: #6b6b6b;
+}
+
+i {
+    font-style: italic;
+}
+
+/* main wrapper */
+.pwr-wrapper {
+    background-image: none;
+    background-color: #075482;
+    min-height: 100vh;
+    position: relative;
+    -webkit-transition: background-image 300ms ease-in-out;
+    transition: background-image 300ms ease-in-out;
+}
+
+body.widget-is-open .pwr-wrapper {
+    background-image: url("../images/background.svg");
+    background-repeat: no-repeat;
+}
+
+.pwr-wrapper-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+/* main wrapper */
+
+/* buttons */
+.pwr-btn-wrapper {
+    transform: translate(0, -50%);
+    position: absolute;
+    top: 45%;
+    text-align: center;
+    left: 0;
+    right: 0;
+}
+
+.btn {
+    font-size: inherit;
+    font-family: "Circular", sans-serif;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    color: #222222;
+    background-color: #ffffff;
+    min-width: 130px;
+    cursor: pointer;
+    white-space: nowrap;
+    min-height: 40px;
+    position: relative;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.014);
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+}
+
+.btn-main {
+    font-size: 22px;
+    padding: 2rem 2.3rem;
+    color: #075383;
+    background-color: #f1f4f8;
+    border-radius: 60px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.089);
+}
+
+.btn-main::before {
+    content: "";
+    display: inline-block;
+    background: url("../images/secure.svg") no-repeat;
+    background-size: cover;
+    width: 27px;
+    height: 27px;
+    vertical-align: middle;
+    margin-right: 8px;
+    margin-bottom: 4px;
+}
+
+.btn-main:hover {
+    box-shadow: none;
+    background-color: #dce1e9;
+}
+
+.btn-close {
+    background: url("../images/close.svg") no-repeat;
+    background-size: cover;
+    position: absolute;
+    right: -30px;
+    top: -30px;
+    width: 25px;
+    height: 25px;
+}
+
+.btn-orange {
+    color: #ffffff;
+    background-color: #f15922;
+    border: none;
+}
+
+.btn-arrow::after {
+    content: "";
+    display: inline-block;
+    background: url("../images/button-arrow.svg") no-repeat;
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-left: 8px;
+    margin-top: -1px;
+    transform: translate(0);
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+}
+
+.btn-arrow-text {
+    display: inline-block;
+    transform: translate(0);
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+}
+
+.btn-arrow:hover .btn-arrow-text {
+    transform: translate(-6px);
+}
+
+.btn-arrow:hover::after {
+    transform: translate(6px);
+}
+
+.btn-page-toggle {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #075383;
+    display: none;
+    font-size: 13px;
+}
+
+.btn-page-toggle.next::after {
+    content: "";
+    background: url("../images/button-arrow-blue.svg") no-repeat;
+    background-size: cover;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-left: 6px;
+    margin-top: -3px;
+}
+
+.btn-page-toggle.prev::before {
+    content: "";
+    background: url("../images/button-arrow-blue.svg") no-repeat;
+    background-size: cover;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-right: 6px;
+    margin-top: -3px;
+    transform: rotate(-180deg);
+}
+
+.btn-continue {
+    margin-top: 30px;
+}
+
+.btn-toggle-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    padding: 0 20px;
+}
+/* buttons */
+
+/* widget */
+.pwr-widget {
+    background-color: #ffffff;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: -50px;
+    margin: auto;
+    width: 384px;
+    height: 620px;
+    border-radius: 6px;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 9999;
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.233);
+}
+
+body.widget-is-open .pwr-widget {
+    opacity: 1;
+    visibility: visible;
+}
+
+.pwr-widget-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 600px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.pwr-logo {
+    width: 140px;
+    height: 20px;
+    position: absolute;
+    top: 20px;
+}
+
+.pwr-logo.large {
+    width: 170px;
+    height: 27px;
+    top: 30px;
+}
+
+.pwr-intro {
+    text-align: center;
+}
+/* widget */
+
+/* forms */
+.form-page {
+    display: none;
+    width: 100%;
+}
+
+.payment-form {
+    width: 100%;
+}
+
+.form-header {
+    padding-bottom: 25px;
+    text-align: center;
+}
+
+.form-header h4 {
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+.form-group {
+    display: flex;
+    margin-bottom: 15px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-input {
+    flex-basis: 60%;
+}
+
+.required-label {
+    font-size: 14px;
+    color: #bb1e1e;
+    font-weight: 400;
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+}
+
+input,
+select {
+    width: 100%;
+    font-family: inherit;
+    padding: 10px 8px;
+    border: 1px solid #acacac;
+    border-radius: 3px;
+}
+
+select {
+    background: url("../images/select-arrow.svg") no-repeat;
+    background-size: 17px;
+    background-position: calc(100% - 10px) 11px, calc(100% - 20px) 1em, 100% 0;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+input[type="radio"] {
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+}
+
+label {
+    font-size: 14px;
+}
+
+.radio-group {
+    display: flex;
+}
+
+.radio-item label {
+    cursor: pointer;
+}
+
+.radio-item:first-of-type {
+    margin-right: 30px;
+}
+
+.user-data {
+    overflow-y: auto;
+    border: 1px solid #eeeeee;
+    padding: 20px 15px;
+    border-radius: 5px;
+    height: 318px;
+    margin-bottom: 25px;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 5%);
+}
+
+.user-data-item {
+    padding-bottom: 10px;
+    font-size: 15px;
+}
+/* forms */
+
+/* footer */
+.footer-inner {
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+    left: 0;
+    right: 0;
+    z-index: 9;
+}
+
+.footer-inner img {
+    vertical-align: middle;
+    width: 20px;
+    margin-right: 6px;
+    margin-bottom: 4px;
+}
+
+.footer-inner span {
+    font-size: 14px;
+    color: #ffffff;
+}
+/* footer */
+
+/* responsive design */
+@media screen and (max-width: 600px) {
+    .pwr-widget {
+        width: 90%;
+        top: 0;
+    }
+    .btn-main {
+        padding: 1.4rem 2.2rem;
+    }
+    .btn-close {
+        right: 0;
+        top: -40px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .pwr-widget {
+        height: 550px;
+        overflow-y: scroll;
+    }
+    .pwr-widget-inner {
+        height: 530px;
+    }
+}
+
+/* responsive design */
