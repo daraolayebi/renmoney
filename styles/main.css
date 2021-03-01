@@ -287,7 +287,6 @@ body.widget-is-open .pwr-widget {
     flex-direction: column;
     height: 600px;
     overflow: hidden;
-    overflow-y: scroll;
 }
 
 .pwr-logo {
