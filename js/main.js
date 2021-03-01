@@ -121,6 +121,7 @@ function resetForm() {
 // equals sign is replaced with colon for better distinction between name and value 
 // the string is decoded and split into an array and each element is passed into HTML 
 function saveFormValues() {
+    dataContainer.innerHTML = ""
     let data = $(paymentForm).serialize()
     var updatedData = data.replace(/=/g, ": ");
     var updatedData2 = updatedData.replace(/%40/g, "@");
@@ -143,6 +144,7 @@ function fetchTodo() {
         success: function (response) {
             document.querySelector('.todo').innerHTML = `
             <h5>Your Todo: ${response.title}</h5>
+            <br>
             <p class="user-data-item">User ID: ${response.userId}<p>
             <p class="user-data-item">Status: ${response.completed}<p>`
         },
