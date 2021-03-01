@@ -101,6 +101,7 @@
                                         id="bvn"
                                         name="BVN"
                                         placeholder="11-digit BVN"
+                                        minlength="11"
                                         maxlength="11"
                                         required>
                                 </div>
@@ -323,11 +324,14 @@
 
                     <div id="page4"
                         class="form-page result-page">
-                        <div class="user-data">
+                        <div class="user-data-wrapper">
                             <h5>Your Information</h5>
                             <br>
+                            <div class="user-data"></div>
                         </div>
-                        <div class="todo"></div>
+                        <div class="user-data-wrapper small">
+                            <div class="todo"></div>
+                        </div>
                     </div>
 
                     <div class="btn-toggle-group"

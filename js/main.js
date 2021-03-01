@@ -144,7 +144,6 @@ function fetchTodo() {
         success: function (response) {
             document.querySelector('.todo').innerHTML = `
             <h5>Your Todo: ${response.title}</h5>
-            <br>
             <p class="user-data-item">User ID: ${response.userId}<p>
             <p class="user-data-item">Status: ${response.completed}<p>`
         },
