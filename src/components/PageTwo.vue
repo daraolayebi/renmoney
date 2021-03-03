@@ -7,7 +7,7 @@
         <div class="form-group">
             <label for="residentialStatus">Residential Status</label>
             <div class="form-input">
-                <select v-model="residentialStatus" name="Residential Status" id="residentialStatus" required>
+                <select v-model="form.residentialStatus" name="ResidentialStatus" id="residentialStatus" required>
                     <option value="" disabled selected>Select status</option>
                     <option value="Owner">Owner</option>
                     <option value="Renting">Renting</option>
@@ -18,21 +18,21 @@
         <div class="form-group">
             <label for="address">Residential Address</label>
             <div class="form-input">
-                <input type="text" v-model="address" id="address" name="Residential Address" placeholder="Residential Address" maxlength="80" required>
+                <input type="text" v-model="form.address" id="address" name="ResidentialAddress" placeholder="Residential Address" maxlength="80" required>
             </div>
         </div>
 
         <div class="form-group">
             <label for="dateMovedIn">Date Moved In</label>
             <div class="form-input">
-                <input type="date" v-model="dateMovedIn" name="Date Moved In" id="dateMovedIn" required>
+                <input type="date" v-model="form.dateMovedIn" name="DateMovedIn" id="dateMovedIn" required>
             </div>
         </div>
 
         <div class="form-group">
             <label for="maritalStatus">Marital Status</label>
             <div class="form-input">
-                <select v-model="maritalStatus" name="Marital Status" id="maritalStatus" required>
+                <select v-model="form.maritalStatus" name="MaritalStatus" id="maritalStatus" required>
                     <option value="" disabled selected>Select status</option>
                     <option value="Single">Single</option>
                     <option value="Renting">Married</option>
@@ -43,7 +43,7 @@
         <div class="form-group">
             <label for="education">Education Level</label>
             <div class="form-input">
-                <select v-model="education" name="Education Level" id="education" required>
+                <select v-model="form.education" name="EducationLevel" id="education" required>
                     <option value="" disabled selected>Select level</option>
                     <option value="Primary">Primary</option>
                     <option value="Secondary">Secondary</option>
@@ -58,18 +58,9 @@
 export default {
   name: "PageTwo",
   computed: {
-    pageTwo() {
-      return this.$store.pageTwo;
+    form() {
+      return this.$store.getters.form;
     },
-  },
-  data() {
-    return {
-      residentialStatus: "",
-      address: "",
-      dateMovedIn: "",
-      maritalStatus: "",
-      education: "",
-    };
   },
 };
 </script>

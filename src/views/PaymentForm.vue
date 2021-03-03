@@ -12,18 +12,20 @@
                     <img src="@/assets/images/logo.svg" alt="Renmoney logo" class="pwr-logo" :class="{'large' : currentPage == 1 || currentPage == 4}">
 
                     <form @submit="submitForm" class="payment-form">
-                        <IntroPage v-if="currentPage == 1" @next-page="nextPage" />
-                        <PageOne v-if="currentPage == 2" @save-fields="saveFields" />
-                        <PageTwo v-if="currentPage == 3" @save-fields="saveFields" />
-                        <PageThree v-if="currentPage == 4" @save-fields="saveFields" />
-                        <PageFour v-if="currentPage == 5" :form="formFields" />
+                        <!-- I chose to use class binding here instead of v-if so that the form information will be persistent -->
+                        <IntroPage :class="{'visible' : currentPage == 1}" @next-page="nextPage" />
+                        <PageOne :class="{'visible' : currentPage == 2}" />
+                        <PageTwo :class="{'visible' : currentPage == 3}" />
+                        <PageThree :class="{'visible' : currentPage == 4}" />
+                        <PageFour :class="{'visible' : currentPage == 5}" :currentPage="currentPage" />
+
+                        <div class="btn-toggle-group" v-if="buttonsVisible">
+                            <button type="button" class="btn-page-toggle prev" @click="previousPage">Prev</button>
+                            <small id="warning" class="required-label">ALL fields are required!</small>
+                            <button type="button" class="btn-page-toggle next" @click="nextPage">{{buttonText}}</button>
+                        </div>
                     </form>
 
-                    <div class="btn-toggle-group" v-if="buttonsVisible">
-                        <button class="btn-page-toggle prev" @click="previousPage">Prev</button>
-                        <small id="warning" class="required-label">ALL fields are required!</small>
-                        <button type="submit" class="btn-page-toggle next" @click="nextPage">{{buttonText}}</button>
-                    </div>
                 </div>
             </div>
 
@@ -82,7 +84,7 @@ export default {
     nextPage() {
       this.currentPage = this.currentPage + 1;
     },
-    saveFields(data) {
+    updateForm(data) {
       this.formData.push(...data);
     },
     submitForm() {

@@ -7,7 +7,7 @@
         <div class="form-group">
             <label for="statelga">State / LGA</label>
             <div class="form-input">
-                <input type="text" v-model="form.statelga" id="statelga" name="State and LGA" placeholder="State / LGA" maxlength="50" required>
+                <input type="text" v-model="form.statelga" id="statelga" name="StateLGA" placeholder="State / LGA" maxlength="50" required>
             </div>
         </div>
 
@@ -25,7 +25,7 @@
         <div class="form-group">
             <label for="income">Monthly Income</label>
             <div class="form-input">
-                <input type="number" v-model="form.income" id="income" name="Monthly Income" placeholder="500000" maxlength="50" required>
+                <input type="number" v-model="form.income" id="income" name="MonthlyIncome" placeholder="500000" maxlength="50" required>
             </div>
         </div>
 
@@ -39,14 +39,14 @@
         <div class="form-group">
             <label for="dob">Date of Birth</label>
             <div class="form-input">
-                <input type="date" v-model="form.dob" name="Date of Birth" id="dob" required>
+                <input type="date" v-model="form.dob" name="DateOfBirth" id="dob" required>
             </div>
         </div>
 
         <div class="form-group">
             <label for="fullname">Full Name</label>
             <div class="form-input">
-                <input type="text" v-model="form.fullname" id="fullname" name="Full Name" placeholder="First, middle and last name" maxlength="70" required>
+                <input type="text" v-model="form.fullname" id="fullname" name="FullName" placeholder="First, middle and last name" maxlength="70" required>
             </div>
         </div>
 
@@ -60,7 +60,7 @@
         <div class="form-group">
             <label for="mobile">Phone Number</label>
             <div class="form-input">
-                <input type="tel" v-model="form.mobile" id="mobile" name="Phone Number" placeholder="Phone number" maxlength="11" required>
+                <input type="tel" v-model="form.mobile" id="mobile" name="PhoneNumber" placeholder="Phone number" maxlength="11" required>
             </div>
         </div>
 
@@ -87,29 +87,9 @@
 <script>
 export default {
   name: "PageOne",
-  data() {
-    return {
-      form: {
-        statelga: "",
-        employment: "",
-        income: "",
-        bvn: "",
-        dob: "",
-        fullname: "",
-        email: "",
-        mobile: "",
-        gender: "",
-      },
-    };
-  },
   computed: {
-    pageOne() {
-      return this.$store.getters.pageOne;
-    },
-  },
-  methods: {
-    updateState(value) {
-      value;
+    form() {
+      return this.$store.getters.form;
     },
   },
 };
